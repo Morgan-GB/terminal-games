@@ -2,7 +2,7 @@
  
 As I've been out of the programming scene for a little while now, I've decided to make a few games to play in the terminal!
 
-# Planned Games
+# Games
 
 - [ ] Tic Tac Toe
 - [ ] Connect 4
