@@ -8,6 +8,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "chalk": "^5.0.1",
     "yargs": "^17.5.1"
   }
 }
