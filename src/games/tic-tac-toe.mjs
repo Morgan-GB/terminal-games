@@ -21,6 +21,10 @@ class Board {
 
   async startGame() {
     this.printBoard()
+    await this.continue();
+  }
+
+  async continue() {
     await this.nextMove();
   }
 
@@ -42,17 +46,18 @@ class Board {
   }
 
   validateEntries() {
+    return [true, "e"]
     // Check if any player has won the round, if there's a tie or the game should continue
 
     /*
     if (square 1 = square 2 = square 3, etc, etc) {
-      return "win"
+      return [false, "win"]
     }
     if (all squares are either `x` or `o` (tie)) {
-      return "tie"
+      return [false, "tie"]
     }
     else {
-      return "continue"
+      return [true, "continue"]
     }
     */
   }
@@ -73,20 +78,29 @@ class Board {
 
     if (!(squareToMark >= 1) || !(squareToMark <= 9) || !/[0-9]/g.test(squareToMark)) {
       console.log("Please enter a valid number!");
-      await this.getNextInput();
+      await this.continue();
     }
 
     const isFree = this.checkIfSquareFree(squareToMark);
 
     if (!isFree) {
       console.log("That square is not free...");
-      await this.getNextInput()
+      await this.continue()
       return;
     }
 
     this.markSquare(squareToMark, this.currentPlayer[1])
 
-    this.currentPlayer = [2, "o"]
+    const validToContinue = this.validateEntries();
+
+    if(!validToContinue[0]) {
+      console.log(validToContinue[1]);
+      return;
+    }
+
+    this.currentPlayer = [2, "o"];
+    this.printBoard();
+    await this.continue();
   }
 }
 
