@@ -50,8 +50,16 @@ class Board {
   }
 
   validateEntries() {
-    return [true, "e"]
+    // return [true, "e"]
     // Check if any player has won the round, if there's a tie or the game should continue
+    if (
+      this.checkEquality(1, 2, 3)
+    ) {
+      return [false, `Player ${this.currentPlayer[0]} wins!`]
+    }
+    else {
+      return [true]
+    }
 
     /*
     if (square 1 = square 2 = square 3, etc, etc) {
@@ -64,6 +72,10 @@ class Board {
       return [true, "continue"]
     }
     */
+  }
+
+  checkEquality(x, y, z) {
+    return this.s[x] === this.s[y] && this.s[x] === this.s[z]
   }
 
   markSquare(square, player) {
@@ -99,7 +111,8 @@ class Board {
     const validToContinue = this.validateEntries();
 
     if(!validToContinue[0]) {
-      console.log(validToContinue[1]);
+      this.printBoard();
+      console.log(ansiEscapes.eraseEndLine + validToContinue[1]);
       return;
     }
 
@@ -114,3 +127,4 @@ async function getUserInput(question) {
   const answer = await new Promise((resolve) => rl.question(`${question}: `, resolve))
   return answer
 }
+
