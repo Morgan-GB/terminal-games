@@ -2,11 +2,12 @@
   "name": "terminal-games",
   "version": "1.0.0",
   "description": "A few simple terminal games.",
-  "main": "./src/index.mjs",
+  "main": "./src/index.js",
   "repository": "https://github.com/MorganWJones/terminal-games",
   "author": "Morgan Jones <me@morganuk.ga>",
   "license": "MIT",
   "private": true,
+  "type": "module",
   "dependencies": {
     "ansi-escapes": "^5.0.0",
     "chalk": "^5.0.1",

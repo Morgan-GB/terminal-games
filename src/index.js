@@ -43,8 +43,9 @@ async function playGame() {
   for (const game of games) {
     if (argv._.includes(game)) {
       success = true;
-      const importedGame = await import(join(gamesDir, `${game}.mjs`));
+      const importedGame = await import(join(gamesDir, `${game}.js`));
       await importedGame.game();
+      console.log("Thank you for playing!")
       process.exit(0);
     }
   }
