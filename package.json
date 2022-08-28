@@ -1,0 +1,10 @@
+{
+  "name": "terminal-games",
+  "version": "1.0.0",
+  "description": "A few simple terminal games.",
+  "main": "./src/index.js",
+  "repository": "https://github.com/MorganWJones/terminal-games",
+  "author": "Morgan Jones <me@morganuk.ga>",
+  "license": "MIT",
+  "private": true
+}
