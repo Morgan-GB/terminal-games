@@ -1,5 +1,6 @@
 import readline from "readline"
 import chalk from "chalk"
+import ansiEscapes from "ansi-escapes"
 
 // Initiate readline
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
@@ -10,6 +11,7 @@ export async function game() {
 }
 
 class Board {
+  turns = 0;
   currentPlayer = [1, "x"]
   s = {}
 
@@ -29,6 +31,8 @@ class Board {
   }
 
   printBoard() {
+    if (this.turns > 0) process.stdout.write(ansiEscapes.cursorUp(8))
+    
     const boardEntry = (number) => {
       const value = this.s[number];
       if (/[0-9]/g.test(value)) return chalk.bold.green(`${this.s[`${number}`]}`)
@@ -64,6 +68,7 @@ class Board {
 
   markSquare(square, player) {
     this.s[square] = player
+    this.turns++;
   }
   
   checkIfSquareFree(square) {
@@ -98,7 +103,8 @@ class Board {
       return;
     }
 
-    this.currentPlayer = [2, "o"];
+    if (this.currentPlayer[0] === 1) this.currentPlayer = [2, "o"];
+    else this.currentPlayer = [1, "x"];
     this.printBoard();
     await this.continue();
   }
