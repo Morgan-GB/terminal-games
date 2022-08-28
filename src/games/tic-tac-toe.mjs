@@ -1,4 +1,10 @@
+import readline from "readline"
+
+// Initiate readline
+const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
+
 export async function game() {
+  
   const board = new Board();
   board.printBoard()
 }
@@ -27,4 +33,9 @@ class Board {
     console.log(`| ${this.s["7"]} | ${this.s["8"]} | ${this.s["9"]} |`)
     console.log(`-------------`)
   }
+}
+
+async function getUserInput(question) {
+  const answer = await new Promise((resolve) => rl.question(`${question}: `, resolve))
+  return answer
 }
