@@ -4,7 +4,7 @@ As I've been out of the programming scene for a little while now, I've decided t
 
 # Games
 
-- [ ] Tic Tac Toe
+- [x] Tic Tac Toe
 - [ ] Connect 4
 
 # How to Play
