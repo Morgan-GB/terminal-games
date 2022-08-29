@@ -1,0 +1,23 @@
+{
+  "name": "terminal-games",
+  "version": "1.0.0",
+  "description": "A few simple terminal games.",
+  "main": "./dist/index.js",
+  "repository": "https://github.com/MorganWJones/terminal-games",
+  "author": "Morgan Jones <me@morganuk.ga>",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "ansi-escapes": "^5.0.0",
+    "chalk": "^5.0.1",
+    "esbuild": "^0.15.5",
+    "rollup": "^2.78.1",
+    "rollup-plugin-esbuild": "^4.10.1",
+    "yargs": "^17.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.13",
+    "@types/yargs": "^17.0.11"
+  }
+}
